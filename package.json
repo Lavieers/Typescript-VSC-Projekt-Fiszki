@@ -1,0 +1,27 @@
+{
+  "name": "projekt",
+  "version": "1.0.0",
+  "description": "Aplikacja do fiszek w czystym TypeScripcie",
+  "scripts": {
+    "start": "parcel index.html", 
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Piotrek0506/Test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",  
+  "bugs": {
+    "url": "https://github.com/Piotrek0506/Test/issues"
+  },
+  "homepage": "https://github.com/Piotrek0506/Test#readme",
+  "dependencies": {
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "parcel": "^2.11.0" 
+  }
+}

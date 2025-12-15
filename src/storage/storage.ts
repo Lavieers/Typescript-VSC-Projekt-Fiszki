@@ -1,0 +1,44 @@
+import { SessionState, CardResult } from '../models/index.js'; 
+
+const STORAGE_KEY_PREFIX = 'flashcard_session_';
+
+
+export function saveSession(state: SessionState): void {
+    const key = STORAGE_KEY_PREFIX + state.deckTitle;
+    try {
+        state.lastReviewDate = Date.now(); 
+        localStorage.setItem(key, JSON.stringify(state));
+    } catch (e) {
+        console.error("Błąd zapisu do localStorage", e);
+    }
+}
+
+
+export function loadSession(deckTitle: string): SessionState | null {
+    const key = STORAGE_KEY_PREFIX + deckTitle;
+    try {
+        const json = localStorage.getItem(key);
+        if (json) {
+            const loadedState: SessionState = JSON.parse(json);
+            return {
+                ...loadedState,
+                filterSettings: loadedState.filterSettings || { shuffle: true, filterTag: null, repeatOnlyHard: false }
+            };
+        }
+    } catch (e) {
+        console.error("Błąd odczytu z localStorage", e);
+    }
+    return null;
+}
+
+
+export function clearSession(deckTitle: string): void {
+    const key = STORAGE_KEY_PREFIX + deckTitle;
+    localStorage.removeItem(key);
+}
+
+
+export function getDeckResults(deckTitle: string): CardResult[] {
+    const state = loadSession(deckTitle);
+    return state ? state.results : [];
+}

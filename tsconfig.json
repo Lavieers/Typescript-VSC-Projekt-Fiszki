@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ES2020", 
+    "moduleResolution": "node", 
+    
+    "rootDir": "./src",
+
+    "strict": true, 
+    "skipLibCheck": true, 
+    "esModuleInterop": true, 
+    "resolveJsonModule": true, 
+    
+    "declaration": false,
+    "declarationMap": false,
+    "sourceMap": true,
+    
+    "verbatimModuleSyntax": false,
+    "isolatedModules": false,
+    "noUncheckedSideEffectImports": false,
+    "moduleDetection": "auto"
+  },
+  "include": ["src/**/*"]
+}
